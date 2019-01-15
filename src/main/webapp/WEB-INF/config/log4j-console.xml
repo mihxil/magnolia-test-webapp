@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+  <appender name="console" class="org.apache.log4j.ConsoleAppender">
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d %-5p %c#%M.%L %m%n"/>
+    </layout>
+  </appender>
+
+
+  <!-- Magnolia categories -->
+  <logger name="info.magnolia">
+    <level value="INFO" />
+  </logger>
+    <!-- External libraries -->
+  <logger name="org">
+    <level value="WARN" />
+  </logger>
+  <logger name="org.quartz">
+    <!-- quartz will log errors in the job on INFO -->
+    <level value="INFO"/>
+  </logger>
+  <logger name="org.apache.jackrabbit">
+    <level value="WARN" />
+  </logger>
+  <!-- Reflections library spoils logs with hundreds of harmless warnings; tries to look into native libs but none of its DefaultUrlTypes can handle them. -->
+   <category name="org.reflections">
+     <priority value="ERROR" />
+   </category>
+  <logger name="com">
+    <level value="WARN" />
+  </logger>
+  <logger name="net">
+    <level value="WARN" />
+  </logger>
+  <logger name="freemarker">
+    <level value="WARN" />
+  </logger>
+  <logger name="httpclient">
+    <level value="WARN" />
+  </logger>
+  <logger name="openwfe">
+    <level value="WARN" />
+  </logger>
+  <logger name="nl.vpro">
+    <level value="INFO" />
+  </logger>
+
+  <logger name="org.jboss.resteasy.plugins.providers.RegisterBuiltin">
+    <level value="ERROR"/>
+  </logger>
+
+  <logger name="info.magnolia.module.templatingkit.templates.components.ImageModel">
+    <!--
+      We don't use Magnolia's mechanism of resolving image variations
+      using CSS selectors, so ignore warnings about Magnolia not being able to
+      resolve an image variation from the CSS selector.
+
+      See http://jira.vpro.nl/browse/MGNL-1498 for more information.
+    -->
+    <level value="ERROR" />
+  </logger>
+
+
+  <logger name="nl.vpro.api.client.resteasy.AbstractApiClient.4">
+    <level value="WARN"/>
+  </logger>
+
+  <root>
+    <level value="INFO" />
+    <appender-ref ref="console" />
+  </root>
+</log4j:configuration>

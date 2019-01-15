@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.meeuw</groupId>
+  <artifactId>magnolia-test-webapp</artifactId>
+  <name>mihxil's magnolia test webapp</name>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <properties>
+    <magnoliaBundleVersion>6.0</magnoliaBundleVersion>
+    <javaVersion>11</javaVersion>
+  </properties>
+
+
+
+  <dependencyManagement>
+    <dependencies>
+
+      <!-- Option A -->
+      <!-- Importing dependencyManagement of CE bundle. -->
+      <dependency>
+        <groupId>info.magnolia.bundle</groupId>
+        <artifactId>magnolia-bundle-parent</artifactId>
+        <version>${magnoliaBundleVersion}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>info.magnolia</groupId>
+      <artifactId>magnolia-empty-webapp</artifactId>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>info.magnolia</groupId>
+      <artifactId>magnolia-empty-webapp</artifactId>
+      <type>pom</type>
+    </dependency>
+    <dependency>
+      <groupId>nl.vpro</groupId>
+      <artifactId>magnolia-context-annotations</artifactId>
+      <version>1.2-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
+
+
+  <build>
+    <defaultGoal>package</defaultGoal>
+    <plugins>
+       <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+         <version>3.2.1</version>
+        <configuration>
+          <!-- exclude jars copied "physically" from the webapp overlay - so we only get those resolved by Maven's dependency management -->
+          <dependentWarExcludes>WEB-INF/lib/*.jar</dependentWarExcludes>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.7.0</version>
+        <configuration>
+          <source>${javaVersion}</source>
+          <target>${javaVersion}</target>
+        </configuration>
+      </plugin>
+       <plugin>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>9.4.14.v20181114</version>
+        <configuration>
+          <systemProperties>
+            <systemProperty>
+              <name>magnolia.home</name>
+              <value>${basedir}/work</value>
+            </systemProperty>
+             <systemProperty>
+               <name>log4j.config</name>
+               <value>WEB-INF/config/log4j-console.xml</value>
+             </systemProperty>
+          </systemProperties>
+          <scanIntervalSeconds>0</scanIntervalSeconds>
+          <jettyConfig>jetty.xml</jettyConfig>
+          <webAppConfig>
+            <contextPath>/</contextPath>
+          </webAppConfig>
+        </configuration>
+      </plugin>
+    </plugins>
+
+    <!-- default resources configuration which will filter your module descriptors -->
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>**/*</include>
+        </includes>
+      </resource>
+      <resource>
+        <filtering>true</filtering>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>META-INF/magnolia/*</include>
+        </includes>
+      </resource>
+    </resources>
+  </build>
+
+  <repositories>
+     <repository>
+      <id>sonatype</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+       <snapshots>
+         <enabled>true</enabled>
+       </snapshots>
+    </repository>
+    <repository>
+      <id>magnolia.public</id>
+      <url>https://nexus.magnolia-cms.com/content/groups/public</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>vaadin-addons</id>
+      <url>https://maven.vaadin.com/vaadin-addons</url>
+    </repository>
+  </repositories>
+
+</project>

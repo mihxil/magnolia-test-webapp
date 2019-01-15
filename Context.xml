@@ -1,0 +1,14 @@
+<Configure id="context" class="org.eclipse.jetty.webapp.WebAppContext">
+
+  <Set name="classLoader">
+    <New class="nl.vpro.jetty.MagnoliaWebAppClassLoader">
+      <Arg>
+        <Ref id="context"/>
+      </Arg>
+    </New>
+  </Set>
+
+  <Set name="extraClasspath">
+  </Set>
+
+</Configure>

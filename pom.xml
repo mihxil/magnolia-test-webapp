@@ -16,6 +16,11 @@
 
   <dependencyManagement>
     <dependencies>
+      <dependency>
+        <groupId>info.magnolia</groupId>
+        <artifactId>magnolia-module-standard-templating-kit</artifactId>
+        <version>3.1.1</version>
+      </dependency>
       <!-- Option A -->
       <!-- Importing dependencyManagement of CE bundle. -->
       <dependency>
@@ -35,10 +40,26 @@
       <artifactId>magnolia-empty-webapp</artifactId>
       <type>war</type>
     </dependency>
-    <dependency>
+     <dependency>
       <groupId>info.magnolia</groupId>
       <artifactId>magnolia-module-standard-templating-kit</artifactId>
-      <version>3.1.1</version>
+       <exclusions>
+         <exclusion>
+           <!--
+            Module Magnolia Module Forum (version 3.3.0) is dependent on adminInterface (version 5.0.2/*), which was not found.
+              -->
+           <groupId>info.magnolia</groupId>
+           <artifactId>magnolia-module-forum</artifactId>
+         </exclusion>
+         <exclusion>
+           <groupId>info.magnolia</groupId>
+           <artifactId>magnolia-dam</artifactId>
+         </exclusion>
+         <exclusion>
+           <groupId>info.magnolia.dam</groupId>
+           <artifactId>magnolia-dam-compatibility</artifactId>
+         </exclusion>
+       </exclusions>
     </dependency>
     <dependency>
       <groupId>info.magnolia</groupId>
@@ -76,7 +97,7 @@
        <plugin>
         <groupId>org.eclipse.jetty</groupId>
         <artifactId>jetty-maven-plugin</artifactId>
-        <version>11.0.1</version>
+        <version>9.4.38.v20210224</version>
         <configuration>
           <systemProperties>
             <systemProperty>
@@ -99,7 +120,7 @@
            <dependency>
              <groupId>nl.vpro.magnolia</groupId>
              <artifactId>magnolia-jetty</artifactId>
-             <version>1.1</version>
+             <version>1.2-SNAPSHOT</version>
            </dependency>
          </dependencies>
       </plugin>

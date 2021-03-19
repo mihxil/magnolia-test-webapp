@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+  <Appenders>
+    <Console name="console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{ISO8601} %-5p %-50.50c: %m%n"/>
+    </Console>
+
+  </Appenders>
+
+  <Loggers>
+
+    <Logger name="info.magnolia" level="INFO"/>
+
+
+    <Root level="DEBUG">
+      <AppenderRef ref="console"/>
+    </Root>
+  </Loggers>
+
+</Configuration>

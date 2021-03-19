@@ -1,6 +1,17 @@
 <!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure_9_0.dtd">
 <Configure id="context" class="org.eclipse.jetty.webapp.WebAppContext">
 
+
+  <New id="test_database" class="org.eclipse.jetty.plus.jndi.Resource">
+    <Arg>java:comp/env</Arg>
+    <Arg>jdbc/magnolia</Arg>
+    <Arg>
+      <New class="org.apache.commons.dbcp.BasicDataSource">
+        <Set name="driverClassName">org.apache.derby.jdbc.EmbeddedDriver</Set>
+        <Set name="url">jdbc:derby:memory:/tmp/magnolia</Set>
+      </New>
+    </Arg>
+  </New>
   <Set name="classLoader">
     <New class="nl.vpro.jetty.MagnoliaWebAppClassLoader">
       <Arg>
@@ -11,5 +22,6 @@
 
   <Set name="extraClasspath">
   </Set>
+
 
 </Configure>

@@ -12,13 +12,13 @@
       </New>
     </Arg>
   </New>
-  <Set name="classLoader">
+  <!--<Set name="classLoader">
     <New class="nl.vpro.jetty.MagnoliaWebAppClassLoader">
       <Arg>
         <Ref refid="context"/>
       </Arg>
     </New>
-  </Set>
+  </Set>-->
 
   <Set name="extraClasspath">
   </Set>

@@ -223,7 +223,7 @@
       <id>vaadin-addons</id>
       <url>https://maven.vaadin.com/vaadin-addons</url>
     </repository>
-    <repository>
+   <!-- <repository>
       <id>vpro</id>
       <url>https://nexus.vpro.nl/content/groups/public</url>
       <releases>
@@ -232,7 +232,7 @@
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
-    </repository>
+    </repository>-->
   </repositories>
 
 </project>

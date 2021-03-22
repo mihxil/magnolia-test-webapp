@@ -164,11 +164,11 @@
           <jettyXml>${basedir}/jetty.xml</jettyXml>
         </configuration>
          <dependencies>
-           <dependency>
+          <!-- <dependency>
              <groupId>nl.vpro.magnolia</groupId>
              <artifactId>magnolia-jetty</artifactId>
              <version>1.2-SNAPSHOT</version>
-           </dependency>
+           </dependency>-->
            <dependency>
              <groupId>commons-dbcp</groupId>
              <artifactId>commons-dbcp</artifactId>

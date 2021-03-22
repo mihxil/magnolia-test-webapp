@@ -17,11 +17,7 @@
 
   <dependencyManagement>
     <dependencies>
-      <dependency>
-        <groupId>info.magnolia</groupId>
-        <artifactId>magnolia-module-standard-templating-kit</artifactId>
-        <version>3.1.1</version>
-      </dependency>
+
       <dependency>
         <groupId>info.magnolia.boms</groupId>
         <artifactId>magnolia-external-dependencies</artifactId>
@@ -35,6 +31,11 @@
         <version>${magnolia-bundle-version}</version>
         <type>pom</type>
         <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>info.magnolia</groupId>
+        <artifactId>magnolia-module-standard-templating-kit</artifactId>
+        <version>3.1.1</version>
       </dependency>
 
     </dependencies>
@@ -65,8 +66,8 @@
        <!--  <exclusion>
            <groupId>info.magnolia</groupId>
            <artifactId>magnolia-dam</artifactId>
-         </exclusion>-->
-
+         </exclusion>
+-->
          <!-- Could not find artifact info.magnolia.dam:magnolia-dam-compatibility:pom:3.0.5 in sonatype (https://oss.sonatype.org/content/repositories/snapshots)-->
 
          <exclusion>
@@ -79,6 +80,25 @@
       <groupId>info.magnolia</groupId>
       <artifactId>magnolia-empty-webapp</artifactId>
       <type>pom</type>
+      <exclusions>
+        <exclusion>
+          <groupId>info.magnolia.lang</groupId>
+          <artifactId>magnolia-lang-ko</artifactId>
+        </exclusion>
+      </exclusions>
+
+    </dependency>
+    <dependency>
+      <groupId>info.magnolia.passwordmanager</groupId>
+      <artifactId>magnolia-module-password-manager</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>info.magnolia.dam</groupId>
+      <artifactId>magnolia-dam-app</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>info.magnolia.dam</groupId>
+      <artifactId>magnolia-dam-app-compatibility</artifactId>
     </dependency>
   </dependencies>
 

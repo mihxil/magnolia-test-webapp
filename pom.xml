@@ -62,10 +62,13 @@
            <groupId>info.magnolia</groupId>
            <artifactId>magnolia-module-forum</artifactId>
          </exclusion>
-         <exclusion>
+       <!--  <exclusion>
            <groupId>info.magnolia</groupId>
            <artifactId>magnolia-dam</artifactId>
-         </exclusion>
+         </exclusion>-->
+
+         <!-- Could not find artifact info.magnolia.dam:magnolia-dam-compatibility:pom:3.0.5 in sonatype (https://oss.sonatype.org/content/repositories/snapshots)-->
+
          <exclusion>
            <groupId>info.magnolia.dam</groupId>
            <artifactId>magnolia-dam-compatibility</artifactId>

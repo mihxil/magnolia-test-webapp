@@ -85,7 +85,11 @@
           <artifactId>magnolia-lang-ko</artifactId>
         </exclusion>
       </exclusions>
-
+    </dependency>
+    <dependency>
+      <groupId>info.magnolia</groupId>
+      <artifactId>magnolia-core-compatibility</artifactId>
+      <version>${magnolia-bundle-version}</version>
     </dependency>
     <dependency>
       <groupId>info.magnolia.passwordmanager</groupId>

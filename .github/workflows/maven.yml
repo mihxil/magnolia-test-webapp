@@ -17,4 +17,4 @@ jobs:
       with:
         java-version: 11
     - name: Run with Maven
-      run: mvn package cargo:run
+      run: mvn --no-transfer-progress package cargo:run

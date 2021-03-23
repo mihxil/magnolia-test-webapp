@@ -31,12 +31,16 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-   <!--   <dependency>
+      <dependency>
         <groupId>info.magnolia</groupId>
         <artifactId>magnolia-module-standard-templating-kit</artifactId>
         <version>3.1.1</version>
-      </dependency>-->
-
+      </dependency>
+      <dependency>
+        <groupId>info.magnolia.dam</groupId>
+        <artifactId>magnolia-dam-compatibility</artifactId>
+        <version>2.6.1</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -51,30 +55,19 @@
     without this, everything seems to work
     add it, and everthing gets hard
     -->
-  <!--  <dependency>
+    <dependency>
       <groupId>info.magnolia</groupId>
       <artifactId>magnolia-module-standard-templating-kit</artifactId>
       <exclusions>
-       &lt;!&ndash;  <exclusion>
-           &lt;!&ndash;
+         <exclusion>
+           <!--
             Module Magnolia Module Forum (version 3.3.0) is dependent on adminInterface (version 5.0.2/*), which was not found.
-              &ndash;&gt;
+              -->
            <groupId>info.magnolia</groupId>
            <artifactId>magnolia-module-forum</artifactId>
-         </exclusion>&ndash;&gt;
-       &lt;!&ndash;  <exclusion>
-           <groupId>info.magnolia</groupId>
-           <artifactId>magnolia-dam</artifactId>
-         </exclusion>
-&ndash;&gt;
-         &lt;!&ndash; Could not find artifact info.magnolia.dam:magnolia-dam-compatibility:pom:3.0.5 in sonatype (https://oss.sonatype.org/content/repositories/snapshots)&ndash;&gt;
-
-         <exclusion>
-           <groupId>info.magnolia.dam</groupId>
-           <artifactId>magnolia-dam-compatibility</artifactId>
          </exclusion>
        </exclusions>
-    </dependency>-->
+    </dependency>
     <dependency>
       <groupId>info.magnolia</groupId>
       <artifactId>magnolia-empty-webapp</artifactId>
@@ -116,7 +109,6 @@
       <version>1.2.17</version>
     </dependency>
 
-
     <dependency>
       <groupId>info.magnolia</groupId>
       <artifactId>magnolia-module-legacy-admininterface</artifactId>
@@ -144,47 +136,6 @@
           <target>${java-version}</target>
         </configuration>
       </plugin>
-     <!-- <plugin>
-        <groupId>org.eclipse.jetty</groupId>
-        <artifactId>jetty-maven-plugin</artifactId>
-        <version>9.4.38.v20210224</version>
-        <configuration>
-          <systemProperties>
-            <systemProperty>
-              <name>magnolia.home</name>
-              <value>${basedir}/work</value>
-            </systemProperty>
-             <systemProperty>
-               <name>log4j.config</name>
-               <value>WEB-INF/config/log4j-console.xml</value>
-             </systemProperty>
-          </systemProperties>
-          <scanIntervalSeconds>0</scanIntervalSeconds>
-          <webAppConfig>
-            <contextPath>/</contextPath>
-          </webAppConfig>
-          <contextXml>${basedir}/Context.xml</contextXml>
-          <jettyXml>${basedir}/jetty.xml</jettyXml>
-        </configuration>
-         <dependencies>
-          &lt;!&ndash; <dependency>
-             <groupId>nl.vpro.magnolia</groupId>
-             <artifactId>magnolia-jetty</artifactId>
-             <version>1.2-SNAPSHOT</version>
-           </dependency>&ndash;&gt;
-           <dependency>
-             <groupId>commons-dbcp</groupId>
-             <artifactId>commons-dbcp</artifactId>
-             <version>1.4</version>
-           </dependency>
-           <dependency>
-             <groupId>org.apache.derby</groupId>
-             <artifactId>derby</artifactId>
-             <version>10.15.2.0</version>
-           </dependency>
-         </dependencies>
-      </plugin>
-     -->
       <plugin>
         <groupId>org.codehaus.cargo</groupId>
         <artifactId>cargo-maven3-plugin</artifactId>

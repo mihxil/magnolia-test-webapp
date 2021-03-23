@@ -1,0 +1,7 @@
+= magnolia-test-webapp
+
+To try out magnolia stuff in a as-minimal as possible webapp.
+
+== vpro branch
+
+In this branch the dependencies are as similar as possible as in the magnolia-site module in the vpro repo.

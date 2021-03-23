@@ -74,6 +74,7 @@
       <type>pom</type>
       <exclusions>
         <exclusion>
+          <!-- Module Magnolia Language files : Korean (version 1.1.3) is dependent on inplace-templating (version 2.4.2/* - optional), but Inplace Templating Module (version 2.4.1) is currently installed. -->
           <groupId>info.magnolia.lang</groupId>
           <artifactId>magnolia-lang-ko</artifactId>
         </exclusion>
@@ -107,6 +108,12 @@
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
       <version>1.2.17</version>
+    </dependency>
+
+
+    <dependency>
+      <groupId>info.magnolia.site</groupId>
+      <artifactId>magnolia-site-app</artifactId>
     </dependency>
   </dependencies>
 
